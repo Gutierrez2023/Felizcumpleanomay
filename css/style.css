@@ -1,0 +1,283 @@
+/* Estilos generales */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  background: radial-gradient(
+    circle,
+    rgb(255, 177, 255) 15%,
+    rgb(88, 1, 122) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Estilos de los títulos */
+h1 {
+  margin: 0;
+  color: #fff;
+  font-family: cursive;
+  font-size: 3em;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  z-index: 50;
+}
+h2 {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #8f00d6;
+  color: #fff;
+  position: absolute;
+  z-index: 51;
+  font-family: cursive;
+  font-size: 2em;
+}
+a {
+  text-decoration: none;
+  padding: 10px;
+  background: #ff69b4;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 4px;
+  display: inline-block;
+}
+
+@keyframes palpitar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.palpitando {
+  animation: palpitar 1s ease-in-out infinite;
+}
+/* ... (estilos previos sin cambios) ... */
+/* Estilos del ramo */
+.bouquet-container {
+  position: relative;
+  width: 100vw;
+  height: 70vh;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.flower-stem-container {
+  position: absolute;
+  width: 20%;
+  bottom: 0;
+}
+.gerbera {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 18%;
+  z-index: 40;
+}
+.petal {
+  position: absolute;
+  width: 40%;
+  height: 66%;
+  border-radius: 50%;
+  transform-origin: bottom center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+.center {
+  position: absolute;
+  top: 67%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 76%;
+  height: 76%;
+  background: radial-gradient(circle, #ab5704 60%, #9f6c06);
+  border-radius: 50%;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+  z-index: 41;
+}
+.center::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, #e8b601 30%, transparent 70%);
+  border-radius: 50%;
+}
+.stem {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 6%;
+  height: 80%;
+  background-color: #228b22;
+  transform: translateX(-450%);
+  z-index: 20;
+}
+.stem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: #1a6b1a;
+  transform: translateX(-100%);
+}
+.leaf {
+  position: absolute;
+  width: 250%;
+  height: 20%;
+  background-color: #019c01;
+  border-radius: 100% 100% 100% 100%;
+  transform-origin: 0 50%;
+  z-index: 30;
+}
+.leaf::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2ebc2e;
+  border-radius: 100% 100% 100% 100%;
+  transform: scale(0.9);
+}
+.leaf:nth-child(odd) {
+  left: 90%;
+  transform: rotate(20deg);
+}
+.leaf:nth-child(even) {
+  left: -140%;
+  transform: scaleX(-1) rotate(30deg);
+}
+
+/* Estilos del modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #fff5ee;
+  margin: 15% auto;
+  padding: 30px;
+  border: 2px solid #ff69b4;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+  font-family: "Brush Script MT", cursive;
+  color: #ff1493;
+  text-align: center;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="80" text-anchor="middle" dy=".35em" opacity="0.1" fill="%23FF69B4">♥</text></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+.modal-content h3 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ff1493;
+}
+
+.modal-content p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.close {
+  color: #ff69b4;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #ff1493;
+  text-decoration: none;
+}
+
+/* Media queries */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.3em;
+    text-align: center;
+  }
+  .flower-stem-container {
+    width: 40%;
+    margin-left: 10%;
+  }
+  .petal {
+    width: 30%;
+    height: 50%;
+  }
+  .center {
+    top: 50%;
+    left: 15%;
+    width: 60%;
+    height: 60%;
+  }
+  .center::after {
+    width: 80%;
+    height: 80%;
+  }
+  .stem {
+    top: 10%;
+    left: 50%;
+    width: 4%;
+    height: 50%;
+    transform: translateX(-650%);
+  }
+  .stem::before {
+    top: 100%;
+    left: 50%;
+    width: 50%;
+    height: 120%;
+  }
+}
+.open-modal-btn {
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.open-modal-btn:hover {
+  background-color: #ff1493;
+}
